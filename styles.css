@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+.box{
+    display: flex;
+    gap: 30px;
+    border: 2px;
+    min-height: 300px;
+    background-color: burlywood;
+}
+
+.card{
+    border: 2px solid lightblue;
+    width: 33%;
+    text-align: center;
+    padding: 0px 20px;
+    background-color: lightslategray;
+    flex-wrap: wrap;
+    flex: 1 1 23%;
+}
+
+.card img{
+    width:200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+ @media screen and (min-width: 560px) and (max-width:780px) {
+    .card{
+        flex:1 1 48%;
+    }
+ } 
+ @media screen and (min-width: 200px) and (max-width:560px) {
+    .card{
+        flex: 1 1 100%;
+    }
+ }
