@@ -53,17 +53,11 @@
 <body>
     <p class="title">Rock Paper Scissors</p>
 
-    <button onclick="
-  playGame('rock');
-    " class="move-button"><img src="https://github.com/SuperSimpleDev/javascript-course/blob/main/2-copy-of-code/images/rock-emoji.png?raw=true" class="move-icon"></button>
+    <button class="move-button js-rock-button"><img src="https://github.com/SuperSimpleDev/javascript-course/blob/main/2-copy-of-code/images/rock-emoji.png?raw=true" class="move-icon"></button>
 
-    <button onclick="
-    playGame('paper');
-    " class="move-button"><img src="https://github.com/SuperSimpleDev/javascript-course/blob/main/2-copy-of-code/images/paper-emoji.png?raw=true" class="move-icon"></button>
+    <button class="move-button js-paper-button"><img src="https://github.com/SuperSimpleDev/javascript-course/blob/main/2-copy-of-code/images/paper-emoji.png?raw=true" class="move-icon"></button>
 
-    <button onclick="
-    playGame('scissors'); 
-    " class="move-button"><img src="https://github.com/SuperSimpleDev/javascript-course/blob/main/2-copy-of-code/images/scissors-emoji.png?raw=true" class="move-icon"></button>
+    <button class="move-button js-scissors-button"><img src="https://github.com/SuperSimpleDev/javascript-course/blob/main/2-copy-of-code/images/scissors-emoji.png?raw=true" class="move-icon"></button>
 
     <p class="js-result result"></p>
     <p class="js-moves"></p>
@@ -105,7 +99,7 @@
 
         function autoPlay() {
             if (!isAutoPlaying) {
-               intervalId = setInterval(function () {
+               intervalId = setInterval(() => {
                 const playerMove = pickComputerMove();
                 playGame(playerMove);
             }, 1000);  
@@ -116,6 +110,31 @@
             }
       
         }
+
+        document.querySelector('.js-rock-button')
+        .addEventListener('click', () => {
+            playGame('rock');
+        });
+
+        document.querySelector('.js-paper-button')
+        .addEventListener('click', () => {
+            playGame('paper');
+        });
+
+        document.querySelector('.js-scissors-button')
+        .addEventListener('click', () => {
+            playGame('scissors');
+        }); 
+
+        document.body.addEventListener('keydown', (event) => {
+            if (event.key === 'r') {
+              playGame('rock'); 
+            } else if (event.key === 'p') {
+              playGame('paper');
+            } else if (event.key === 's') {
+              playGame('scissors');
+            }
+        });
 
         function playGame(playerMove) {
 
